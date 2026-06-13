@@ -4,6 +4,7 @@ import { useRef, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { useEnergyStore, House as HouseType } from '../../store/useEnergyStore';
 import * as THREE from 'three';
+import { Html } from '@react-three/drei';
 
 interface HouseProps {
   house: HouseType;
@@ -11,6 +12,7 @@ interface HouseProps {
 
 export default function House({ house }: HouseProps) {
   const meshRef = useRef<THREE.Group>(null);
+  const glowRef = useRef<THREE.Mesh>(null);
   const selectedHouse = useEnergyStore((state) => state.selectedHouse);
   const setSelectedHouse = useEnergyStore((state) => state.setSelectedHouse);
   const [hovered, setHovered] = useState(false);
@@ -29,6 +31,16 @@ export default function House({ house }: HouseProps) {
       } else {
         meshRef.current.position.y = THREE.MathUtils.lerp(meshRef.current.position.y, 0, 0.1);
       }
+    }
+
+    if (glowRef.current && isSelected) {
+      const t = state.clock.getElapsedTime();
+      const pulseOpacity = 0.12 + Math.sin(t * 4) * 0.06;
+      const pulseScale = 1.05 + Math.sin(t * 4) * 0.03;
+      if (glowRef.current.material) {
+        (glowRef.current.material as THREE.MeshBasicMaterial).opacity = pulseOpacity;
+      }
+      glowRef.current.scale.set(pulseScale, pulseScale, pulseScale);
     }
   });
 
@@ -74,6 +86,8 @@ export default function House({ house }: HouseProps) {
     document.body.style.cursor = 'auto';
   };
 
+  const houseNumber = house.id.split('-')[1] || '0';
+
   return (
     <group
       ref={meshRef}
@@ -93,6 +107,8 @@ export default function House({ house }: HouseProps) {
           roughness={0.9}
           metalness={0.0}
           flatShading
+          emissive={statusColor}
+          emissiveIntensity={isSelected ? 0.25 : hovered ? 0.1 : 0.0}
         />
       </mesh>
 
@@ -110,6 +126,8 @@ export default function House({ house }: HouseProps) {
           roughness={0.9} 
           metalness={0.0}
           flatShading
+          emissive={roofColor}
+          emissiveIntensity={isSelected ? 0.25 : hovered ? 0.1 : 0.0}
         />
       </mesh>
 
@@ -124,7 +142,7 @@ export default function House({ house }: HouseProps) {
         <meshStandardMaterial 
           color={statusColor} 
           emissive={statusColor}
-          emissiveIntensity={hovered || isSelected ? 2.5 : 1.0}
+          emissiveIntensity={isSelected ? 4.5 : hovered ? 3.0 : 1.0}
         />
       </mesh>
 
@@ -145,12 +163,58 @@ export default function House({ house }: HouseProps) {
         </lineSegments>
       )}
 
+      {/* Glow Effect when selected */}
+      {isSelected && (
+        <mesh ref={glowRef}>
+          <boxGeometry args={[1.22, 1.22, 1.22]} />
+          <meshBasicMaterial 
+            color={statusColor} 
+            transparent 
+            opacity={0.15} 
+            side={THREE.DoubleSide}
+            blending={THREE.AdditiveBlending}
+          />
+        </mesh>
+      )}
+
       {/* Selection Base ring */}
       {isSelected && (
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.59, 0]}>
           <ringGeometry args={[0.9, 1.0, 32]} />
           <meshBasicMaterial color="#212121" side={THREE.DoubleSide} />
         </mesh>
+      )}
+
+      {/* Floating label above the house */}
+      {isSelected && (
+        <Html position={[0, 1.45, 0]} center distanceFactor={15} style={{ pointerEvents: 'none' }}>
+          <div style={{
+            background: '#FFFFFF',
+            color: '#212121',
+            border: '2px solid #212121',
+            padding: '4px 8px',
+            fontFamily: 'monospace',
+            fontSize: '9px',
+            fontWeight: '900',
+            whiteSpace: 'nowrap',
+            borderRadius: '2px',
+            boxShadow: '2px 2px 0px 0px #212121',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5px',
+            textTransform: 'uppercase',
+            letterSpacing: '0.05em'
+          }}>
+            <span style={{
+              width: '6px',
+              height: '6px',
+              borderRadius: '50%',
+              background: statusColor,
+              display: 'inline-block',
+            }} />
+            H-{houseNumber} Selected
+          </div>
+        </Html>
       )}
     </group>
   );
