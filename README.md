@@ -6,7 +6,7 @@
 **An Autonomous Multi-Agent Energy Operating System that transforms residential communities into self-optimizing sustainable ecosystems.**
 
 [![Deploy Link](https://img.shields.io/badge/Live%20Demo-Vercel-success?style=for-the-badge&logo=vercel&logoColor=white)](https://hackprixs3.vercel.app)
-[![Hackathon](https://img.shields.io/badge/Hackprix-Season_3_Hyderabad-8A2BE2?style=for-the-badge)](https://hackprixs3.vercel.app)
+[![Hackathon](https://img.shields.io/badge/Hackprix-Season_3_Hyderabad-8A2BE2?style=for-the-badge)]
 [![Tech Stack](https://img.shields.io/badge/Tech-React_|_FastAPI_|_LLM-blue?style=for-the-badge)](#)
 
 </div>
