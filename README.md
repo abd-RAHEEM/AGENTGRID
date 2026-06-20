@@ -5,8 +5,10 @@
 
 **An Autonomous Multi-Agent Energy Operating System that transforms residential communities into self-optimizing sustainable ecosystems.**
 
-[![Deploy Link](https://img.shields.io/badge/Live%20Demo-Vercel-success?style=for-the-badge&logo=vercel&logoColor=white)](https://hackprixs3.vercel.app)
-[![Hackathon](https://img.shields.io/badge/Hackprix-Season_3_Hyderabad-8A2BE2?style=for-the-badge)]
+>🏆 **Winner: Consolation Prize (Best Use of Sarvam AI Track) @ HackPrix Season 3 Hyderabad**
+
+
+![Hackathon](https://img.shields.io/badge/Hackprix-Season_3_Hyderabad-8A2BE2?style=for-the-badge)
 [![Tech Stack](https://img.shields.io/badge/Tech-React_|_FastAPI_|_LLM-blue?style=for-the-badge)](#)
 
 </div>
@@ -25,13 +27,48 @@ Traditional energy grids are reactive and central-heavy. **AGENTGRID** reimagine
 
 ## 🚀 Key Innovations
 
-### 🤖 Multi-Agent LLM Orchestration
-At the core of AgentGrid is a society of intelligent agents. Instead of hardcoded rules, these agents use Large Language Models (Groq / Sarwam) to reason about energy states, predict future consumption, and negotiate trades. 
-- **🏠 House Agent:** Learns user habits and optimizes appliance usage.
-- **☀️ Solar Agent:** Predicts generation based on weather patterns.
-- **🔋 Battery Agent:** Buys energy when cheap, sells when demand peaks.
-- **🚗 EV Agent:** Ensures the car is charged for morning commutes while acting as a mobile battery at night.
-- **🏢 Grid Agent:** Manages the macro-demand and prevents blackouts.
+### 1. Multi-Agent State Graph (Powered by LangGraph)
+Instead of disjointed LLM prompts, the community is modeled as a sequential, state-mutating graph where each agent acts as a specialized node optimizing for its unique constraints:
+* **☀️ Solar Agent:** Predicts immediate generation curves based on real-time weather data.
+* **🔋 Battery Agent:** Evaluates current State of Charge (SoC) limits and health metrics.
+* **🏠 House Agent:** Ingests household load data and categorizes appliances by critical vs. non-critical priorities.
+* **🚗 EV Agent:** Calculates charging flexibility windows based on departure slack times.
+* **🏢 Grid Agent:** Monitors macro-demand, dynamic utility pricing, and prevents localized blackouts.
+
+As the state passes through the graph (`SolarAgent` → `BatteryAgent` → `HouseAgent` → `EVAgent` → `GridAgent`), each node enriches a shared community state object with domain-specific constraints before passing it to downstream layers.
+
+### 2. Mathematical Supply-Demand Optimization
+Once the state graph is fully enriched, it feeds into a centralized dispatch engine that executes algorithmic load shedding and balancing during energy shortfalls:
+* **Battery Priority:** Maximizes local storage discharge before drawing expensive grid power.
+* **EV Flex-Window Slack:** Dynamically defers EV charging based on a **Longest Slack First (LSF)** queuing model.
+* **Algorithmic Load Shedding:** Triggers automated shedding of non-critical household loads based on user-defined priority queues to guarantee microgrid stability.
+
+## 🎙️ Indic Language Accessibility Layer (Sarvam AI) 🏆
+
+*Proudly awarded the **Consolation Prize under the Best Use of Sarvam track** at HackPrix Hyderabad!*
+
+Smart-grid dashboards typically assume high English literacy and tech-savviness, creating severe adoption barriers for residential communities in India. AgentGrid breaks this barrier by wrapping the entire operating system in a multilingual voice-to-action pipeline built on **Sarvam AI's speech stack**. Residents can manage their entire microgrid naturally in **Hindi, Telugu, Urdu, and Indian English**.
+
+                    ┌──────────────────────────────┐
+                    │ LangGraph & Dispatch Engine  │
+                    └──────────────┬───────────────┘
+                                   │
+                                   ▼
+                           [System Action]
+
+  [User Voice Command] 🗣️
+          │
+          ▼ (STT: saaras:v3)
+  [Structured Vernacular Text]
+          │
+          ▼ (Translation: mayura:v1)
+  [English Queries]
+          │
+          ▼ (Translation: mayura:v1)
+  [Vernacular Action/Response]
+          │
+          ▼ (TTS: bulbul:v3)
+  [Natural Audio Feedback] 🔊
 
 ### 🎮 Immersive 3D Digital Twin UI
 AgentGrid doesn't just output charts—it provides a stunning **interactive 3D environment** that acts as your window into the ecosystem.
