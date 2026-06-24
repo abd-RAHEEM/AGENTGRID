@@ -17,7 +17,7 @@
 
 ## 🏆 Hackathon Details
 > **Hackprix Season 3 Hyderabad**  
-> **Team Lazy ppl:** Abdul Raheem | Mohammed Abdul Rafe Sajid | Shaikh Abdullah | Akber Hussain
+> **Team Lazy ppl:** [Abdul Raheem](https://github.com/abd-RAHEEM) | [Mohammed Abdul Rafe Sajid](https://github.com/Mohammed-Abdul-Rafe-Sajid) | [Sheikh Abdullah](https://github.com/sheikhabd22) | [Akber Hussain](https://github.com/AKBER-HUSSAIN)
 
 ---
 
