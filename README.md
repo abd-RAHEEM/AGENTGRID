@@ -44,7 +44,7 @@ Once the state graph is fully enriched, it feeds into a centralized dispatch eng
 
 ## 🎙️ Indic Language Accessibility Layer (Sarvam AI) 🏆
 
-*Proudly awarded the **Consolation Prize under the Best Use of Sarvam track** at HackPrix Hyderabad!*
+
 
 Smart-grid dashboards typically assume high English literacy and tech-savviness, creating severe adoption barriers for residential communities in India. AgentGrid breaks this barrier by wrapping the entire operating system in a multilingual voice-to-action pipeline built on **Sarvam AI's speech stack**. Residents can manage their entire microgrid naturally in **Hindi, Telugu, Urdu, and Indian English**.
 
