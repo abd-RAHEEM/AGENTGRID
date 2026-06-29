@@ -5,7 +5,6 @@
 
 **An Autonomous Multi-Agent Energy Operating System that transforms residential communities into self-optimizing sustainable ecosystems.**
 
->🏆 **Winner: Consolation Prize (Best Use of Sarvam AI Track) @ HackPrix Season 3 Hyderabad**
 
 
 ![Hackathon](https://img.shields.io/badge/Hackprix-Season_3_Hyderabad-8A2BE2?style=for-the-badge)
