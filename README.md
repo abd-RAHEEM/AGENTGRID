@@ -22,7 +22,7 @@
 
 ## 🌍 The Vision
 
-Traditional energy grids are reactive and central-heavy. **AGENTGRID** reimagines energy distribution as a living, breathing digital organism. By assigning specialized, LLM-powered AI agents to different nodes of a community (Houses, EVs, Solar Farms, Batteries), the system enables real-time negotiation, peer-to-peer energy trading, and autonomous crisis management.
+Traditional energy grids are mostly reactive and central-heavy. **AGENTGRID** reimagines energy distribution as a living, breathing digital organism. By assigning specialized, LLM-powered AI agents to different nodes of a community (Houses, EVs, Solar Farms, Batteries), the system enables real-time negotiation, peer-to-peer energy trading, and autonomous crisis management.
 
 ## 🚀 Key Innovations
 
